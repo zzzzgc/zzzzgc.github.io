@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>产品服务</title>
+    <link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <style>
+        /*common css*/
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-size: 18px;
+        }
+
+        /*common css end*/
+
+        .service-container {
+            width: 1263px;
+            margin: 0 auto;
+            padding: 0px;
+            background-color: rgb(244, 244, 244);
+        }
+
+        /*header css start*/
+
+        .header-title {
+            width: 1263px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.5);
+            line-height: 60px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 5;
+        }
+
+        .header-title ul {
+            width: 500px;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #fcf5d7;
+        }
+
+        .header-title ul li a {
+            color: #fcf5d7;
+        }
+
+        .header-slider {
+            width: 100%;
+            height: 550px;
+        }
+
+        .header-search {
+            text-align: center;
+        }
+
+        .header-search-left {
+            width: 50%;
+        }
+
+        .header-search-left ul {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: row;
+            color: #fcf5d7;
+            background: red;
+            font-size: 14px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .header-search-left ul li {
+            width: 20%;
+        }
+
+        .service-product {
+            width: 100%;
+            display: flex;
+        }
+
+        .import-product {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .import-product dl {
+            width: 250px;
+        }
+
+        .import-product dl dt img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .import-product dl dd {
+            margin: 0px auto;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .footer-container {
+            margin: 0px auto;
+            font-size: 14px;
+            background-color: #66a812;
+            color: #f5faf0;
+            height: 50px;
+            width: 1263px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .showStr {
+            position: absolute;
+            left: 50%;
+            top: 380px;
+            margin-left: -173px;
+            z-index: 10000;
+            font-size: 28px;
+            color: #ffffff;
+            letter-spacing: 5px;
+        }
+
+        .str {
+            display: block;
+            border-top: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            padding: 5px 25px;
+            margin-bottom: 20px;
+            line-height: 34px;
+        }
+
+        .str_img {
+            margin-left: 30px;
+        }
+
+        .showStr2 {
+            position: absolute;
+            left: 50%;
+            top: 340px;
+            z-index: 10000;
+            font-size: 22px;
+            color: #ffffff;
+            letter-spacing: 5px;
+            margin-left: -250px;
+        }
+
+        .str2 {
+            display: block;
+            border-top: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            padding: 5px 25px;
+            margin-bottom: 20px;
+            line-height: 34px;
+        }
+
+        /*header css end*/
+    </style>
+</head>
+
+<body>
+<div class="service-container" id="lazy_load_start">
+    <div class="header-container">
+        <div class="header-title">
+            <ul>
+                <li>
+                    <a href="index.html">嘻果首页</a>
+                </li>
+                <li style="margin-top:7px;">
+                    <a href="index.html"><img  src="img/else/logo.png"/></a>
+                </li>
+                <li>
+                    <a href="about.html">关于我们</a>
+                </li>
+                <li>
+                    <a href="service.html">产品服务</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header-slider">
+            <div class="reader_slide">
+                <div class="slide">
+                    <img src="img/loading/loading_big.gif" data-src="img/main/reader1-1.jpg" width="100%" height="550px"/>
+                    <div class="showStr">
+                        <span class="str">与合作伙伴携手共赢</span>
+                        <img class="str_img" src="img/loading/loading.gif" data-src="img/else/m01.png"/>
+                    </div>
+                </div>
+                <div class="slide">
+                    <!--这个img无法被获取到,懒加载失败-->
+                    <img src="img/main/reader2-2.jpg" width="100%" height="550px"/>
+                    <div class="showStr2">
+                        <div class="str2">
+                            <span style="display: block">整合全球优质资源，构建高效供应链，</span>
+                            <span style="display: block">推动现代农业的发展，实现产业报国。</span>
+                        </div>
+                        <img src="img/loading/loading.gif" data-src="img/else/m01.png" style="margin-left:120px;margin-top: 10px;"/>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.reader_slide').bxSlider({
+                        slideWidth: 1263,
+                        minSlides: 1,
+                        maxSlides: 1,
+                        startSlides: 0,
+                        slideMargin: 10,
+                        mode: 'fade',
+                        auto: true
+                    });
+                });
+            </script>
+        </div>
+        <div class="header-search"
+             style="clear: both;display: flex;flex-direction: row;height: 70px;line-height: 75px;border-bottom:1px solid #eaeaea;">
+            <div style="font-size:15px;color:#8f8f8f;flex:1;">热门关键字 有机水果 有机水果配送 水果配送加盟 有机水果供应商</div>
+            <div style="flex:1;">
+                <input class="search-input" spaceholder=""
+                       style="width:240px;height: 24px;background-color: #d3d3d3;border:1px solid #d3d3d3;"/>
+                <button class="search-btn"
+                        style="height: 26px;background-color: #fc9902;color:white;border:1px solid #fc9902;">
+                    搜索
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="service-product-container">
+        <div style="text-align: center;font-size:32px;margin:30px auto;">进口水果</div>
+        <div>
+            <div class="import-product">
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/智利车厘子-z.jpg'/></dt>
+                    <dd>智利车厘子</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/印尼山竹-z.jpg'/></dt>
+                    <dd>印尼山竹</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/进口蓝莓-z.jpg'/></dt>
+                    <dd>进口蓝莓</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/干尧-z.jpg'/></dt>
+                    <dd>金枕榴莲</dd>
+                </dl>
+            </div>
+            <div class="import-product">
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/越南红心火龙果-z.jpg'/></dt>
+                    <dd>越南红心火龙果</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/草莓-z.jpg'/></dt>
+                    <dd>草莓</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/越南红心火龙果-z.jpg'/></dt>
+                    <dd>越南红心火龙果</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/loading/loading.gif" data-src='img/product/import/哥伦比亚燕窝果-z.jpg'/></dt>
+                    <dd>哥伦比亚燕窝果</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="service-product-container">
+            <div style="text-align: center;font-size:32px;margin:30px auto;">国内精品水果</div>
+            <div style="margin-bottom: 30px;">
+                <div class="import-product">
+                    <!--<span>进口水果</span>-->
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/百香果-z.jpg'/></dt>
+                        <dd>百香果</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/不知火丑橘-z.jpg'/></dt>
+                        <dd>不知火丑橘</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/齐峰翠香猕猴桃-z.jpg'/></dt>
+                        <dd>齐峰翠香猕猴桃</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/新疆无籽红提-z.jpg'/></dt>
+                        <dd>新疆无籽红提</dd>
+                    </dl>
+                </div>
+                <div class="import-product">
+                    <!--<span>进口水果</span>-->
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/阿克苏苹果-z.jpg'/></dt>
+                        <dd>阿克苏苹果</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/冰糖木瓜-z.jpg'/></dt>
+                        <dd>冰糖木瓜</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/17.5度橙-z.jpg'/></dt>
+                        <dd>17.5度橙</dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="img/loading/loading.gif" data-src='img/product/domestic/老树冰糖血橙-z.jpg'/></dt>
+                        <dd>老树冰糖血橙</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            广州指猴互联网科技有限公司 52xiguo.com 粤ICP备18008081号
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script type="application/javascript" src="js/lazyLoad.js"></script>
+
+<script>
+    window.onload = function () {
+        // 启动懒加载
+        new Lazyload("lazy_load_start");
+
+        // 设置轮播图
+        $('.reader_slide').bxSlider({
+            slideWidth: 1263,
+            minSlides: 1,
+            maxSlides: 1,
+            ticker: true,
+            startSlides: 0,
+            slideMargin: 10,
+            mode: 'fade'
+        });
+    }
+</script>
+
+</html>
